@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link href="../static/css/estilo.css" th:href="@{/css/estilo.css}" rel="stylesheet" type="text/css">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Curriculum Vitae</title>
+</head>
+<body>
+
+<center>
+<div class="padre">
+    <div class="hijo">
+
+        <h1>Registro de citas</h1>
+
+        <form th:action="@{/datos}" th:object="${cv}">
+            <table>
+                <tr>
+                    <td> Paciente: </td>
+                    <td> <input type="text" th:field="*{nombre}" autocomplete="given-name:" style="border-radius: 10px"><br> </td>
+                </tr> <tr>
+                <td> Correo electronico: </td>
+                <td> <input type="email" th:field="*{correo}" style="border-radius: 10px"><br> </td>
+            </tr> <tr>
+                <td> Teléfono: </td>
+                <td> <input type="tel" th:field="*{telefono}" style="border-radius: 10px"><br> </td>
+            </tr> <tr>
+                <td> Médico: </td>
+                <td> <input type="text" th:field="*{doctor}" autocomplete="given-name:" style="border-radius: 10px"> <br> </td>
+            </tr> <tr>
+                <td> Hora: </td>
+                <td> <input type="time" th:field="*{hora}" style="border-radius: 10px"><br> </td>
+            </tr> <tr>
+                <td> Fecha: </td>
+                <td> <input type="date" th:field="*{fecha}" style="border-radius: 10px"><br> </td>
+            </tr> <tr>
+                <td> Comentarios: </td>
+                <td> <input type="text" th:field="*{asunto}" style="border-radius: 10px"><br> </td>
+            </tr> <tr>
+                <td> </td>
+                <td> <input type="sumbit" value="Guardar Cita">  <br><br> </td>
+            </tr>
+
+            </table>
+        </form>
+    </div>
+</div>
+</center>
+
+<center>
+    <h1>Citas registradas</h1>
+<label th:text = "${arrayList}"> </label>
+</center>
+
+</body>
+</html>
+
+<!-- http://localhost:8090/cv/datos -->
+
